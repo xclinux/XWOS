@@ -163,7 +163,7 @@
           (string-match "release: :bookmark:" recent-git-commit)
           (string-match "developing: :construction:" recent-git-commit)
           (string-match "milestone: :bookmark:" recent-git-commit))
-      (call-process "git" nil nil nil "tag" "-d" (concat "XuanWuOS-V" vstr))
+      (call-process "git" nil nil nil "tag" "-d" (concat "XWOS-V" vstr))
       (call-process "git" nil nil nil "reset" "HEAD^")
       (call-process "git" nil nil nil "checkout" XuanWuOS-version-file)
       (logi "Reset version .... [OK]"))
@@ -201,9 +201,9 @@
       (save-buffer)
       (call-process "git" nil nil nil "add" XuanWuOS-version-file)
       (call-process "git" nil nil nil
-                    "commit" "-m" (concat "milestone: :bookmark: 玄武OS-V" vstr))
+                    "commit" "-m" (concat "milestone: :bookmark: XWOS-V" vstr))
       (call-process "git" nil nil nil "tag" "-a"
-                    "-m" (concat "XuanWuOS-" vstr) (concat "XuanWuOS-V" vstr))
+                    "-m" (concat "XWOS-" vstr) (concat "XWOS-V" vstr))
       (logi "next version: V%s" vstr))
      (opt-minor ;; case opt-minor
       (set-buffer version-file-buffer)
@@ -229,12 +229,12 @@
       (if (evenp vnum-minor)
           (progn
             (call-process "git" nil nil nil
-                          "commit" "-m" (concat "release: :bookmark: 玄武OS-V" vstr))
+                          "commit" "-m" (concat "release: :bookmark: XWOS-V" vstr))
             (call-process "git" nil nil nil "tag" "-a"
-                        "-m" (concat "XuanWuOS-" vstr) (concat "XuanWuOS-V" vstr)))
+                        "-m" (concat "XWOS-" vstr) (concat "XWOS-V" vstr)))
           (progn
             (call-process "git" nil nil nil
-                      "commit" "-m" (concat "developing: :construction: 玄武OS-V" vstr))))
+                      "commit" "-m" (concat "developing: :construction: XWOS-V" vstr))))
       (logi "next version: V%s" vstr))
      (opt-revision ;; case opt-revision
       (setq XuanWuOS-version-revision (number-to-string (+ vnum-revision 1)))
@@ -251,10 +251,10 @@
       (save-buffer)
       (call-process "git" nil nil nil "add" XuanWuOS-version-file)
       (call-process "git" nil nil nil
-                    "commit" "-m" (concat "patch: :bookmark: 玄武OS-V" vstr))
+                    "commit" "-m" (concat "patch: :bookmark: XWOS-V" vstr))
       (if (evenp vnum-minor)
           (call-process "git" nil nil nil "tag" "-a"
-                        "-m" (concat "XuanWuOS-" vstr) (concat "XuanWuOS-V" vstr)))
+                        "-m" (concat "XWOS-" vstr) (concat "XWOS-V" vstr)))
       (logi "next version: V%s" vstr)))))
 
 ;;;;;;;; ;;;;;;;; ;;;;;;;; exit ;;;;;;;; ;;;;;;;; ;;;;;;;;
